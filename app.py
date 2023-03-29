@@ -44,6 +44,11 @@ def classifier():
 
         pred_df = data.get_data_as_data_frame()
         print(pred_df)
+        predict_pipeline=PredictPipeline()
+        print("Mid Prediction")
+        results=predict_pipeline.predict(pred_df)
+        print(results[0])
+        return render_template('prediction.html',pred=results[0])
         
 
 @app.route("/prediction")

@@ -4,6 +4,10 @@ sys.path.append("src")
 import pandas as pd
 from exception import CustomException
 from utils import load_object
+import pickle as pkl
+from sklearn.preprocessing import OrdinalEncoder
+
+
 
 
 class PredictPipeline:
@@ -12,12 +16,15 @@ class PredictPipeline:
 
     def predict(self,features):
         try:
-            model_path=os.path.join("artifacts","model.pkl")
+            encoder = OrdinalEncoder()
+            model_path=os.path.join("artifacts","model.sav")
             preprocessor_path=os.path.join('artifacts','preprocessor.pkl')
-            model=load_object(file_path=model_path)
-            preprocessor=load_object(file_path=preprocessor_path)
+            preprocessor = pkl.load(open(preprocessor_path, 'rb'))
+            predictor = pkl.load(open(model_path, 'rb'))
+            #model=load_object(file_path=model_path)
+            #preprocessor=load_object(file_path=preprocessor_path)
             data_scaled=preprocessor.transform(features)
-            preds=model.predict(data_scaled)
+            preds=predictor.predict(data_scaled)
             return preds
         
         except Exception as e:

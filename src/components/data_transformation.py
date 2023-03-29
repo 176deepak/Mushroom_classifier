@@ -73,7 +73,7 @@ class DataTransformation:
 
         
     def initiate_data_transformation(self,train_path,test_path):
-        encoder = LabelEncoder()
+        encoder = OrdinalEncoder()
         try:
             train_df=pd.read_csv(train_path)
             test_df=pd.read_csv(test_path)
@@ -88,11 +88,11 @@ class DataTransformation:
 
             input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
             target_feature_train_df=train_df[target_column_name]
-            target_feature_train_df=encoder.fit_transform(target_feature_train_df)
+            target_feature_train_df=encoder.fit_transform(pd.DataFrame(train_df[target_column_name]))
 
             input_feature_test_df=test_df.drop(columns=[target_column_name],axis=1)
             target_feature_test_df=test_df[target_column_name]
-            target_feature_test_df=encoder.fit_transform(target_feature_test_df)
+            target_feature_test_df=encoder.fit_transform(pd.DataFrame(test_df[target_column_name]))
 
             logging.info(
                 f"Applying preprocessing object on training dataframe and testing dataframe."
@@ -102,9 +102,9 @@ class DataTransformation:
             input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
 
             train_arr = np.c_[
-                input_feature_train_arr, np.array(target_feature_train_df)
+                input_feature_train_arr, target_feature_train_df
             ]
-            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
+            test_arr = np.c_[input_feature_test_arr, target_feature_test_df]
 
             logging.info(f"Saved preprocessing object.")
 
