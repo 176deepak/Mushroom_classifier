@@ -1,0 +1,57 @@
+body{
+    background-color: #000000;
+}
+
+.home-page{
+    text-align: center; 
+    margin-top: 25vh;
+    color: aliceblue;
+    font-size: 2vw;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+button{
+    color:  aliceblue;
+    background-color: #A020F0;
+    font-weight:normal;
+    cursor: pointer;
+    width: 80px;
+    padding: 3px 0 3px 0;
+    border-radius: 12px;
+}
+
+.text{
+    text-align: center;
+    color: aliceblue;
+    margin-top: 50px;
+}
+
+form{
+    text-align: center;
+    border-color: #A020F0;
+    border-width: 2px;
+}
+
+input{
+    padding: 5px 5px 5px 5px;
+    margin-top: 5px;
+}
+
+.submit{
+    margin-top: 2em;
+    color:  aliceblue;
+    background-color: #A020F0;
+    font-weight:normal;
+    cursor: pointer;
+    width: 80px;
+    padding: 3px 0 3px 0;
+    border-radius: 12px;
+}
+
+h3{
+    color: #A020F0;
+    font-family: cursive;
+}

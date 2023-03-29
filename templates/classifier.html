@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushrrom Classifier</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="text">
+        <h2>
+            Enter details
+        </h2>
+    </div>
+    <div class="form">
+    <form method="post">
+        <input placeholder="cap-shape" type="text" name="shape" list="cap-shape">
+        <datalist id="cap-shape">
+            <option label="x" value="x"></option>
+            <option label="b" value="b"></option>
+            <option label="s" value="s"></option>
+            <option label="f" value="f"></option>
+            <option label="k" value="k"></option>
+            <option label="c" value="c"></option>
+        </datalist>
+
+        <input placeholder="cap-surface" type="text" name="surface" list="cap-surface">
+        <datalist id="cap-surface">
+            <option label="s" value="s"></option>
+            <option label="y" value="y"></option>
+            <option label="f" value="f"></option>
+            <option label="g" value="g"></option>
+        </datalist>
+        <br/>
+        <input placeholder="cap-color" type="text" name="color" list="cap-color">
+        <datalist id="cap-color">
+            <option label="n" value="n"></option>
+            <option label="y" value="y"></option>
+            <option label="w" value="w"></option>
+            <option label="g" value="g"></option>
+            <option label="e" value="e"></option>
+            <option label="p" value="p"></option>
+            <option label="b" value="b"></option>
+            <option label="u" value="u"></option>
+            <option label="c" value="c"></option>
+            <option label="r" value="r"></option>
+        </datalist>
+
+        <input placeholder="bruises" type="text" name="bruises" list="bruises">
+        <datalist id="bruises">
+            <option label="t" value="t"></option>
+            <option label="f" value="f"></option>
+        </datalist>
+        <br>
+        <input placeholder="odor" type="text" name="odor" list="odor">
+        <datalist id="odor">
+            <option label="p" value="p"></option>
+            <option label="a" value="a"></option>
+            <option label="l" value="l"></option>
+            <option label="n" value="n"></option>
+            <option label="f" value="f"></option>
+            <option label="c" value="c"></option>
+            <option label="y" value="y"></option>
+            <option label="s" value="s"></option>
+            <option label="m" value="m"></option>
+        </datalist>
+
+        <input placeholder="gill-attachment" type="text" name="attachment" list="gill-attachment">
+        <datalist id="gill-attachment">
+            <option label="f" value="f"></option>
+            <option label="a" value="a"></option>
+        </datalist>
+        <br>
+        <input placeholder="gill-spacing" type="text" name="spacing" list="gill-spacing">
+        <datalist id="gill-spacing">
+            <option label="c" value="c"></option>
+            <option label="w" value="w"></option>
+        </datalist>
+
+        <input placeholder="gill-size" type="text" name="size" list="gill-size">
+        <datalist id="gill-size">
+            <option label="n" value="n"></option>
+            <option label="b" value="b"></option>
+        </datalist>
+        <br>
+        <input placeholder="gill-color" type="text" name="gill-color" list="gill-color">
+        <datalist id="gill-color">
+            <option label="k" value="k"></option>
+            <option label="n" value="n"></option>
+            <option label="g" value="g"></option>
+            <option label="p" value="p"></option>
+            <option label="w" value="w"></option>
+            <option label="h" value="h"></option>
+            <option label="u" value="u"></option>
+            <option label="e" value="e"></option>
+            <option label="b" value="b"></option>
+            <option label="r" value="r"></option>
+            <option label="y" value="y"></option>
+            <option label="o" value="o"></option>
+        </datalist>
+        
+        <input placeholder="stalk-shape" type="text" name="stalk-shape" list="stalk-shape">
+        <datalist id="stalk-shape">
+            <option label="e" value="e"></option>
+            <option label="t" value="t"></option>
+        </datalist>
+        <br>
+        <input placeholder="stalk-root" type="text" name="root" list="stalk-root">
+        <datalist id="stalk-root">
+            <option label="e" value="e"></option>
+            <option label="c" value="c"></option>
+            <option label="b" value="b"></option>
+            <option label="r" value="r"></option>
+        </datalist>
+        
+        <input placeholder="stalk-surface-above-ring" type="text" name="ssa-ring" list="stalk-surface-above-ring">
+        <datalist id="stalk-surface-above-ring">
+            <option label="s" value="s"></option>
+            <option label="f" value="f"></option>
+            <option label="k" value="k"></option>
+            <option label="y" value="y"></option>
+        </datalist>
+        <br>
+        <input placeholder="stalk-surface-below-ring" type="text" name="ssb-ring" list="stalk-surface-below-ring">
+        <datalist id="stalk-surface-below-ring">
+            <option label="s" value="s"></option>
+            <option label="f" value="f"></option>
+            <option label="k" value="k"></option>
+            <option label="y" value="y"></option>
+        </datalist>
+        
+        <input placeholder="stalk-color-above-ring" type="text" name="sca-ring" list="stalk-color-above-ring">
+        <datalist id="stalk-color-above-ring">
+            <option label="w" value="w"></option>
+            <option label="g" value="g"></option>
+            <option label="p" value="p"></option>
+            <option label="n" value="n"></option>
+            <option label="b" value="b"></option>
+            <option label="e" value="e"></option>
+            <option label="o" value="o"></option>
+            <option label="c" value="c"></option>
+            <option label="y" value="y"></option>
+        </datalist>
+        <br>
+        <input placeholder="stalk-color-below-ring" type="text" name="scb-ring" list="stalk-color-below-ring">
+        <datalist id="stalk-color-below-ring">
+            <option label="w" value="w"></option>
+            <option label="g" value="g"></option>
+            <option label="p" value="p"></option>
+            <option label="n" value="n"></option>
+            <option label="b" value="b"></option>
+            <option label="e" value="e"></option>
+            <option label="o" value="o"></option>
+            <option label="c" value="c"></option>
+            <option label="y" value="y"></option>
+        </datalist>
+        
+        <input placeholder="veil-type" type="text" name="veil-type" list="veil-type">
+        <datalist id="veil-type">
+            <option label="p" value="p"></option>
+        </datalist>
+        <br>
+        <input placeholder="veil-color" type="text" name="veil-color" list="veil-color">
+        <datalist id="veil-color">
+            <option label="w" value="w"></option>
+            <option label="n" value="n"></option>
+            <option label="o" value="o"></option>
+            <option label="y" value="y"></option>
+        </datalist>
+        
+        <input placeholder="ring-number" type="text" name="ring-number" list="ring-number">
+        <datalist id="ring-number">
+            <option label="o" value="o"></option>
+            <option label="t" value="t"></option>
+            <option label="n" value="n"></option>
+        </datalist>
+        <br>
+        <input placeholder="ring-type" type="text" name="ring-type" list="ring-type">
+        <datalist id="ring-type">
+            <option label="p" value="p"></option>
+            <option label="e" value="e"></option>
+            <option label="l" value="l"></option>
+            <option label="f" value="f"></option>
+            <option label="n" value="n"></option>
+        </datalist>
+        
+        <input placeholder="spore-print-color" type="text" name="sp-color" list="spore-print-color">
+        <datalist id="spore-print-color">
+            <option label="k" value="k"></option>
+            <option label="n" value="n"></option>
+            <option label="u" value="u"></option>
+            <option label="h" value="h"></option>
+            <option label="w" value="w"></option>
+            <option label="r" value="r"></option>
+            <option label="o" value="o"></option>
+            <option label="y" value="y"></option>
+            <option label="b" value="b"></option>
+        </datalist>
+        <br>
+        <input placeholder="population" type="text" name="population" list="population">
+        <datalist id="population">
+            <option label="s" value="s"></option>
+            <option label="n" value="n"></option>
+            <option label="a" value="a"></option>
+            <option label="v" value="v"></option>
+            <option label="y" value="y"></option>
+            <option label="c" value="c"></option>
+        </datalist>
+        
+        <input placeholder="habitat" type="text" name="habitat" list="habitat">
+        <datalist id="habitat">
+            <option label="u" value="u"></option>
+            <option label="g" value="g"></option>
+            <option label="m" value="m"></option>
+            <option label="d" value="d"></option>
+            <option label="p" value="p"></option>
+            <option label="w" value="w"></option>
+            <option label="l" value="l"></option>
+        </datalist>
+        <br>
+        <input class="submit" placeholder="Predict" type="submit">
+    </form>
+    </div>
+</body>
+</html>
