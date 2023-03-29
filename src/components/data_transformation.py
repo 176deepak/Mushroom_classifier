@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder,StandardScaler, LabelEncoder
+from sklearn.preprocessing import OneHotEncoder,StandardScaler, LabelEncoder, OrdinalEncoder
 from exception import CustomException
 from logger import logging
 from utils import save_object
@@ -54,7 +54,7 @@ class DataTransformation:
             cat_pipeline=Pipeline(
                 steps=[
                 ("imputer",SimpleImputer(strategy="most_frequent")),
-                ("Label_encoder",LabelEncoder())
+                ("encoder", OrdinalEncoder())
                 #("scaler",StandardScaler(with_mean=False))
                 ]
             )
@@ -70,8 +70,10 @@ class DataTransformation:
         
         except Exception as e:
             raise CustomException(e,sys)
+
         
     def initiate_data_transformation(self,train_path,test_path):
+        encoder = LabelEncoder()
         try:
             train_df=pd.read_csv(train_path)
             test_df=pd.read_csv(test_path)
@@ -86,9 +88,11 @@ class DataTransformation:
 
             input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
             target_feature_train_df=train_df[target_column_name]
+            target_feature_train_df=encoder.fit_transform(target_feature_train_df)
 
             input_feature_test_df=test_df.drop(columns=[target_column_name],axis=1)
             target_feature_test_df=test_df[target_column_name]
+            target_feature_test_df=encoder.fit_transform(target_feature_test_df)
 
             logging.info(
                 f"Applying preprocessing object on training dataframe and testing dataframe."

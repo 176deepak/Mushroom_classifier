@@ -10,11 +10,11 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from data_transformation import DataTransformation
 from data_transformation import DataTransformationConfig
-'''
+
 from model_trainer import ModelTrainerConfig
 from model_trainer import ModelTrainer
 
-
+'''
 The dataclass decorator is used to automatically generate special methods to classes, including __str__ and __repr__. It helps reduce some boilerplate code. The dataclass decorator is located in the dataclasses module.
 '''
 
@@ -61,9 +61,8 @@ if __name__=="__main__":
     data_transformation=DataTransformation()
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
-'''
     modeltrainer=ModelTrainer()
     print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
-'''
+
 
 
