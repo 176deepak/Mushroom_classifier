@@ -14,9 +14,6 @@ from data_transformation import DataTransformationConfig
 from model_trainer import ModelTrainerConfig
 from model_trainer import ModelTrainer
 
-'''
-The dataclass decorator is used to automatically generate special methods to classes, including __str__ and __repr__. It helps reduce some boilerplate code. The dataclass decorator is located in the dataclasses module.
-'''
 
 @dataclass
 class DataIngestionConfig:

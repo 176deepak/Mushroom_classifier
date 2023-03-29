@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder,StandardScaler, LabelEncoder, OrdinalEncoder
+from sklearn.preprocessing import OrdinalEncoder
 from exception import CustomException
 from logger import logging
 from utils import save_object
@@ -21,10 +21,6 @@ class DataTransformation:
         self.data_transformation_config=DataTransformationConfig()
 
     def get_data_transformer_object(self):
-        '''
-        This function is responsible for data trnasformation
-        
-        '''
         try:
             categorical_columns = [
                 'cap-shape',
@@ -55,7 +51,6 @@ class DataTransformation:
                 steps=[
                 ("imputer",SimpleImputer(strategy="most_frequent")),
                 ("encoder", OrdinalEncoder())
-                #("scaler",StandardScaler(with_mean=False))
                 ]
             )
 
